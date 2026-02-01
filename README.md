@@ -156,6 +156,21 @@ Note: Requires the `ellmer` R package.
 4. **Action Plan**: Generate AI recommendations and prioritize actions
 5. **Reports**: Export results to Excel
 
+## Architecture Map (text)
+
+```
+Browser (Shiny UI)
+  ├─ dashboardPage (app/app.R)
+  │    ├─ dashboardHeader / Sidebar / Body (Home, How-To, Dashboard, GOV1-8, Gap Analysis, Action Plan, Reports)
+  │    └─ Theme assets (app/www/styles.css, www/*)
+  └─ Server logic (app/app.R)
+       ├─ Reactive store: assessment_data (responses, history, cycles)
+       ├─ Data sources: gov_section1..8 -> combined_data(), domain_summary()
+       ├─ Outputs: plotly charts, DT tables, score cards, nav buttons
+       ├─ LLM integration: call_llm() → llama.cpp/Ollama/OpenAI via HTTP
+       └─ Exports: downloadHandler() → XLSX (openxlsx)
+```
+
 ### LLM Configuration
 
 In the **Action Plan** tab under "AI-Generated Recommendations":
