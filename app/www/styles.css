@@ -79,8 +79,6 @@ body {
 
 .main-header .navbar {
   background-color: var(--persian-blue) !important;
-  width: calc(100% - var(--sidebar-width)) !important;
-  margin-left: 0 !important;
 }
 
 .sidebar-mini.sidebar-collapse .main-header .navbar {
@@ -1040,11 +1038,6 @@ table.dataTable.stripe tbody tr.odd {
   .main-footer,
   .right-side {
     margin-left: var(--sidebar-width);
-  }
-
-  .main-header .navbar,
-  .main-header .logo {
-    width: var(--sidebar-width);
   }
 
   .main-header .navbar {
